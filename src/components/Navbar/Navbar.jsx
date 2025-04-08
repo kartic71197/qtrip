@@ -7,12 +7,12 @@ import styles from "./Navbar.module.css";
 
 function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-green-500 text-white">
+    <nav className="flex justify-between items-center bg-green-500 text-white p-4">
       <Link to="/">
         <Logo />
       </Link>
       <Search
-        placeholder="Search a song of your choice"
+        placeholder="search"
       />
       <Button>Give Feedback</Button>
     </nav>
