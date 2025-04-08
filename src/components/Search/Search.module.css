@@ -7,6 +7,7 @@
     border: 1px solid var(--color-black);
     width: 502px;
     background-color:aliceblue;
+    color:black;
   }
   
   .wrapper {
