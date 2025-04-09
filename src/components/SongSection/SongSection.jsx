@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,7 +44,16 @@ const SongSection = ({ heading, data, genres }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 7
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 7
+    },
+  };
   return (
     <div className={styles.content}>
       <div className={styles.topSection}>
@@ -75,13 +86,13 @@ const SongSection = ({ heading, data, genres }) => {
         </Box>
         {genres.data?.map((genre, index) => (
           <CustomTabPanel key={genre.key} value={value} index={index}>
-            <div className={styles.grid}>
+            <Carousel responsive={responsive}>
               {data
                 .filter((item) => item.genre.key == genre.key)
                 .map((item, i) => (
                   <Card key={i} data={item} />
                 ))}
-            </div>
+             </Carousel>
           </CustomTabPanel>
         ))}
       </Box>
