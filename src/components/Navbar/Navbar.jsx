@@ -8,12 +8,8 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <Link to="/">
-        <Logo />
-      </Link>
-      <Search
-        placeholder="Search a album of  your choice"
-      />
+      <Logo />
+      <Search/>
       <Button>Give Feedback</Button>
     </nav>
   );

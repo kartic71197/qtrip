@@ -118,7 +118,7 @@ import styles from "./Search.module.css";
 import searchIcon from '../../assets/search-icon.svg';
 
 
-const Search = ({ placeholder }) => {
+const Search = ({ }) => {
   return (
     <>
       <div style={{ position: "relative" }}>
@@ -129,7 +129,7 @@ const Search = ({ placeholder }) => {
               <input
                 name="album"
                 className={styles.search}
-                placeholder={placeholder}
+                placeholder="Search a album of  your choice"
                 required
              />
             </div>
