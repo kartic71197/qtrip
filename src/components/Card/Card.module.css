@@ -1,0 +1,42 @@
+.card{
+    width: 159px;
+    height: 232px;
+    background-color: #121212;
+}
+.cardImage{
+    width: 159px;
+    height: 205px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    position: relative;
+
+}
+.image{
+    width: 159px;
+    height: 170px;
+    border-radius: 10px;
+}
+.chip{
+    position: absolute;
+    top: 176px;
+    left: 8px;
+    height: 23px;
+    background-color: #121212;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-family: 'poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: none;
+}
+
+.cardContent{
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
