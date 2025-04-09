@@ -120,17 +120,16 @@ import searchIcon from '../../assets/search-icon.svg';
 
 const Search = ({ }) => {
   return (
-    <>
-      <div style={{ position: "relative" }}>
-           <form
+  <form
          className={styles.wrapper}
            >
            <div>
               <input
                 name="album"
                 className={styles.search}
-                placeholder="Search a album of  your choice"
+                placeholder="Search a album of your choice"
                 required
+                type='text'
              />
             </div>
             <div>
@@ -139,8 +138,6 @@ const Search = ({ }) => {
              </button>
            </div>
         </form>
-      </div>
-    </>
   )
 }
 
