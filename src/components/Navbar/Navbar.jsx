@@ -8,7 +8,9 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       <Search/>
       <Button>Give Feedback</Button>
     </nav>
