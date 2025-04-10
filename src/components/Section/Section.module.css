@@ -29,10 +29,9 @@
     margin-bottom: 20px;
 }
 
-.grid{
-    display: flex;
-    flex-wrap: wrap;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
     gap: 20px;
-    justify-content: start;
     align-items: center;
-}
+  }
