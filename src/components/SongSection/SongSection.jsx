@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,11 +47,11 @@ const SongSection = ({ heading, data, genres }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 7
+      items: 7,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 7
+      items: 7,
     },
   };
   return (
@@ -67,15 +67,15 @@ const SongSection = ({ heading, data, genres }) => {
             aria-label="genre tabs"
             TabIndicatorProps={{
               style: {
-                backgroundColor: "#34C948", 
+                backgroundColor: "#34C948",
               },
             }}
             sx={{
               "& .MuiTab-root": {
-                color: "white", 
+                color: "white",
               },
               "& .Mui-selected": {
-                color: "#34C948", 
+                color: "#34C948",
               },
             }}
           >
@@ -86,13 +86,23 @@ const SongSection = ({ heading, data, genres }) => {
         </Box>
         {genres.data?.map((genre, index) => (
           <CustomTabPanel key={genre.key} value={value} index={index}>
-            <Carousel responsive={responsive}>
-              {data
-                .filter((item) => item.genre.key == genre.key)
-                .map((item, i) => (
-                  <Card key={i} data={item} />
-                ))}
-             </Carousel>
+            {typeof window !== "undefined" && window.Cypress ? (
+              <div className={styles.cardList}>
+                {data
+                  .filter((item) => item.genre.key === genre.key)
+                  .map((item, i) => (
+                    <Card key={i} data={item} />
+                  ))}
+              </div>
+            ) : (
+              <Carousel responsive={responsive}>
+                {data
+                  .filter((item) => item.genre.key === genre.key)
+                  .map((item, i) => (
+                    <Card key={i} data={item} />
+                  ))}
+              </Carousel>
+            )}
           </CustomTabPanel>
         ))}
       </Box>

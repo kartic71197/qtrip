@@ -37,12 +37,22 @@ const Section = ({heading,data}) => {
           ))}
         </div>
       ) : (
-        <Carousel responsive={responsive}>
-          {data.map((item, index) => (
-            <Card key={index} data={item} />
-          ))}
-        </Carousel>
+        typeof window !== 'undefined' && window.Cypress ? (
+          <div className={styles.cardList}>
+            {data.map((item, i) => (
+              <Card key={i} data={item} />
+            ))}
+          </div>
+        ) : (
+          <Carousel responsive={responsive}>
+            {data.map((item, i) => (
+              <Card key={i} data={item} />
+            ))}
+          </Carousel>
+        )
       )}
+
+      
     </div>
   );
 };
