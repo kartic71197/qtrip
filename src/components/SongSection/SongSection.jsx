@@ -86,10 +86,17 @@ const SongSection = ({ heading, data, genres }) => {
         </Box>
         {genres.data?.map((genre, index) => (
           <CustomTabPanel key={genre.key} value={value} index={index}>
+            {/* <Carousel responsive={responsive}>
+              {data
+                .filter((item) => item.genre.key == genre.key)
+                .map((item, i) => (
+                  <Card key={i} data={item} />
+                ))}
+            </Carousel> */}
             {typeof window !== "undefined" && window.Cypress ? (
-              <div className={styles.cardList}>
+              <div>
                 {data
-                  .filter((item) => item.genre.key === genre.key)
+                  .filter((item) => item.genre.key == genre.key)
                   .map((item, i) => (
                     <Card key={i} data={item} />
                   ))}
@@ -97,7 +104,7 @@ const SongSection = ({ heading, data, genres }) => {
             ) : (
               <Carousel responsive={responsive}>
                 {data
-                  .filter((item) => item.genre.key === genre.key)
+                  .filter((item) => item.genre.key == genre.key)
                   .map((item, i) => (
                     <Card key={i} data={item} />
                   ))}
